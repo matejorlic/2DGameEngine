@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include <Box2D\Box2D.h>
 #include <Windows.h> //For Sleep()
+#include "GameObject.h"
 
 b2Body* body[20];
 b2Body* blueBody;
@@ -170,7 +171,6 @@ void Render(sf::RenderWindow &window) {
 int main() {
 	// Define the gravity vector.
 	b2Vec2 gravity(0.0f, -10.0f);
-
 	// Construct a world object, which will hold and simulate the rigid bodies.
 	b2World world(gravity);
 
