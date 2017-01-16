@@ -1,4 +1,4 @@
-// 2DGameEngine.cpp : Defines the entry point for the console application.
+// main.cpp : Defines the entry point for the console application.
 //
 
 #include "stdafx.h"
@@ -6,7 +6,8 @@
 #include <SFML/Graphics.hpp>
 #include <Box2D\Box2D.h>
 #include <Windows.h> //For Sleep()
-#include "GameObject.h"
+
+#include "GameEngine.h"
 
 b2Body* body[20];
 b2Body* blueBody;

@@ -1,10 +1,11 @@
 #pragma once
-#include "GameObject.h"
+
+class GameObject;
 
 class Component {
 private:
 	GameObject& parent;
 public:
-	Component(GameObject& p);
+	Component(GameObject& parentGO);
 	~Component();
 };

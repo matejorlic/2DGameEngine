@@ -1,11 +1,12 @@
-#include "stdafx.h"
+#pragma once
 #include <list>
-#include "Component.h"
+
+class Component;
 
 class GameObject {
 private:
-	static std::list<GameObject&> gameObjects;
-	std::list<Component> components;
+	static std::list<GameObject*> gameObjects;
+	std::list<Component*> components;
 public:
 	std::string name;
 
@@ -15,13 +16,13 @@ public:
 	GameObject();
 	GameObject(std::string name);
 	~GameObject();
-	static GameObject Find(std::string name);
-	static GameObject Clone(GameObject gameObject);
+	static GameObject* Find(std::string name);
+	static GameObject* Clone(GameObject gameObject);
 	template <typename T>
 	T AddComponent();
 	template <typename T>
 	T GetComponent();
 	template <typename T>
 	void RemoveComponent();
-	void RemoveComponent(Component component);
+	void RemoveComponent(Component& component);
 };
