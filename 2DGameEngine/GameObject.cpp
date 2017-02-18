@@ -13,26 +13,11 @@ GameObject::~GameObject() {
 	gameObjects.remove(this);
 }
 
-GameObject* GameObject::Find(std::string name) {
-	return new GameObject();
+GameObject& GameObject::Find(std::string name) {
+	return GameObject();
 }
-GameObject* GameObject::Clone(GameObject gameObject) {
-	return new GameObject();
-}
-
-template <typename T>
-T GameObject::AddComponent() {
-
-}
-
-template <typename T>
-T GameObject::GetComponent() {
-
-}
-
-template <typename T>
-void GameObject::RemoveComponent() {
-
+GameObject& GameObject::Clone(GameObject gameObject) {
+	return GameObject();
 }
 
 void GameObject::RemoveComponent(Component& component) {

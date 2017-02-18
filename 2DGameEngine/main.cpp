@@ -18,10 +18,23 @@ sf::Text text, tutorial;
 sf::Font font;
 sf::Texture *blueBallTex;
 
-float32 timeStep = 1.0f / 60.0f;
-int32 velocityIterations = 6;
-int32 positionIterations = 2;
+float32 timeStep2 = 1.0f / 60.0f;
+int32 velocityIterations2 = 6;
+int32 positionIterations2 = 2;
 int a = 0;
+
+int main() {
+	GameEngine::Create();
+	
+	GameObject gameObject = GameObject("myObject");
+	gameObject.AddComponent<Sprite>().SetTexture("Resources/blueBall.png");
+	//gameObject.AddComponent<BoxCollider>().SetSize(200, 200);
+	//gameObject.GetComponent<Transform>().position = new Vector2(100, 150);
+	//gameObject.GetComponent<Transform>().scale = new Vector2(0.5f, 0.5f);
+
+	GameEngine::Run();
+	return 0;
+}
 
 void CreatePhysics(b2World &world) {
 	// Define the ground body.
@@ -123,7 +136,7 @@ void Update(sf::RenderWindow &window, b2World &world) {
 	}
 
 	//Sleep for timeStep ms.
-	Sleep(timeStep * 1000 * 0.5f);
+	Sleep(timeStep2 * 1000 * 0.5f);
 
 	// Check input
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
@@ -143,7 +156,7 @@ void Update(sf::RenderWindow &window, b2World &world) {
 
 	// Instruct the world to perform a single step of simulation.
 	// It is generally best to keep the time step and iterations fixed.
-	world.Step(timeStep, velocityIterations, positionIterations);
+	world.Step(timeStep2, velocityIterations2, positionIterations2);
 
 	for (int i = 0; i < 20; i++) {
 		// Now print the position and angle of the body.
@@ -169,7 +182,7 @@ void Render(sf::RenderWindow &window) {
 	window.display();
 }
 
-int main() {
+int main2() {
 	// Define the gravity vector.
 	b2Vec2 gravity(0.0f, -10.0f);
 	// Construct a world object, which will hold and simulate the rigid bodies.
