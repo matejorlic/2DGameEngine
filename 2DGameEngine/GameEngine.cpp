@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "GameEngine.h"
-#include <Box2D\Box2D.h>
 
 GameEngine* GameEngine::gameEngine = nullptr;
 const float GameEngine::timeStep = 1.0f / 60.0f;
@@ -29,5 +28,32 @@ void GameEngine::Create(){
 }
 
 void GameEngine::Run(){
+	gameEngine->window = new sf::RenderWindow(sf::VideoMode(500, 500), "SFML works!");
+
+	float xPos = 0;
+	bool direction = true;
+	while (gameEngine->window->isOpen()) {
+		gameEngine->ProcessInput();
+		gameEngine->UpdatePhysics();
+		gameEngine->UpdateGraphics();
+		Sleep(1000 * timeStep * 0.5f);
+	}
+}
+
+void GameEngine::ProcessInput() {
+	sf::Event event;
+	while (gameEngine->window->pollEvent(event)) {
+		if (event.type == sf::Event::Closed) {
+			gameEngine->window->close();
+			return;
+		}
+	}
+}
+
+void GameEngine::UpdatePhysics(){
+
+}
+
+void GameEngine::UpdateGraphics(){
 
 }

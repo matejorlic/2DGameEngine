@@ -1,11 +1,14 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+#include <Box2D\Box2D.h>
+#include <Windows.h> //For Sleep()
+
 #include "GameObject.h"
 #include "Component.h"
 #include "Sprite.h"
 #include "Collider.h"
 #include "BoxCollider.h"
 #include "SphereCollider.h"
-
 
 class b2World;
 
@@ -20,9 +23,13 @@ private:
 	static const int positionIterations;
 public:
 	b2World* physicsWorld;
+	sf::RenderWindow* window;
 	
 private:
 	GameEngine();
+	void ProcessInput();
+	void UpdatePhysics();
+	void UpdateGraphics();
 	
 public:
 	static GameEngine* GetInstance();

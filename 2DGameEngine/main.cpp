@@ -3,9 +3,6 @@
 
 #include "stdafx.h"
 #include <iostream>
-#include <SFML/Graphics.hpp>
-#include <Box2D\Box2D.h>
-#include <Windows.h> //For Sleep()
 
 #include "GameEngine.h"
 
@@ -26,8 +23,8 @@ int a = 0;
 int main() {
 	GameEngine::Create();
 	
-	GameObject gameObject = GameObject("myObject");
-	gameObject.AddComponent<Sprite>().SetTexture("Resources/blueBall.png");
+	//GameObject gameObject = GameObject("myObject");
+	//gameObject.AddComponent<Sprite>().SetTexture("Resources/blueBall.png");
 	//gameObject.AddComponent<BoxCollider>().SetSize(200, 200);
 	//gameObject.GetComponent<Transform>().position = new Vector2(100, 150);
 	//gameObject.GetComponent<Transform>().scale = new Vector2(0.5f, 0.5f);
