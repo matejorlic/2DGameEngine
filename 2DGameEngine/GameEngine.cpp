@@ -55,5 +55,16 @@ void GameEngine::UpdatePhysics(){
 }
 
 void GameEngine::UpdateGraphics(){
+	window->clear();
+	for each (Sprite* s in Sprite::sprites) {
+		b2Vec2 position = s->gameObject.transform->GetPosition();
+		float32 angle = s->gameObject.transform->GetRotation();
+		//s->sprite.setPosition(position.x * 100, 500 - position.y * 100);
+		s->sprite.setRotation(angle);
 
+		window->draw(s->sprite);
+	}
+
+	//window->draw(blueSprite);
+	window->display();
 }

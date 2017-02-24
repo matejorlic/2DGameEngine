@@ -8,6 +8,7 @@ GameObject::GameObject() : GameObject("GameObject") {};
 GameObject::GameObject(std::string n) {
 	name = n;
 	gameObjects.push_back(this);
+	transform = AddComponent<Transform>();
 }
 GameObject::~GameObject() {
 	gameObjects.remove(this);

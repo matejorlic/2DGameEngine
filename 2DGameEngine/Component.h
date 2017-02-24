@@ -3,8 +3,9 @@
 class GameObject;
 
 class Component {
-private:
-	GameObject& parent;
+public:
+	GameObject& gameObject;
+
 public:
 	Component(GameObject& parentGO);
 	~Component();

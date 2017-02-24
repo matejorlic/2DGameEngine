@@ -1,6 +1,7 @@
 #pragma once
 #include <list>
 #include "Sprite.h"
+#include "Transform.h"
 
 class Component;
 
@@ -10,6 +11,7 @@ private:
 	std::list<Component*> components;
 public:
 	std::string name;
+	Transform *transform;
 
 private:
 
@@ -20,12 +22,14 @@ public:
 	static GameObject& Find(std::string name);
 	static GameObject& Clone(GameObject gameObject);
 	template <typename T>
-	T AddComponent() {
-		return T(*this);
+	T* AddComponent() {
+		T* newComponent = new T(*this);
+		components.push_back(newComponent);
+		return newComponent;
 	}
 	template <typename T>
-	T GetComponent() {
-		return T(*this);
+	T* GetComponent() {
+		return &T(*this);
 	}
 	template <typename T>
 	void RemoveComponent() {

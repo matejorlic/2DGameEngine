@@ -9,6 +9,7 @@
 #include "Collider.h"
 #include "BoxCollider.h"
 #include "SphereCollider.h"
+#include "Transform.h"
 
 class b2World;
 
