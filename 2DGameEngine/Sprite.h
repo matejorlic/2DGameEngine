@@ -1,6 +1,8 @@
 #pragma once
 #include "Component.h"
 
+// Sprite component is used for saving graphics (textures) that are drawn on objects positions.
+
 class Sprite : public Component {
 private:
 	sf::Texture* texture;

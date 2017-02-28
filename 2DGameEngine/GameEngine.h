@@ -12,7 +12,8 @@
 #include "Transform.h"
 #include "Rigidbody.h"
 
-class b2World;
+// GameEngine is the central class of the engine. 
+// It connects physics and graphics to render the screen.
 
 class GameEngine {
 private:
@@ -20,7 +21,6 @@ private:
 	static GameEngine* gameEngine;
 
 public:
-
 	// Physics constants
 	static const float timeStep;
 	static const int velocityIterations;

@@ -3,6 +3,10 @@
 #include "Sprite.h"
 #include "Transform.h"
 
+// GameObject class represent a game object.
+// It saves list of components attached to a game object.
+// Components can be added or removed from the game object.
+
 class Component;
 
 class GameObject {

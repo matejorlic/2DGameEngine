@@ -2,6 +2,10 @@
 #include "Component.h"
 #include <Box2D\Box2D.h>
 
+// Transform is always added to a game object.
+// This component take care of position, rotation and scale of the game object.
+// Also save hierarchy data - parent transform and children transforms.
+
 class Transform : public Component {
 	friend class BoxCollider;
 	friend class SphereCollider;
@@ -19,4 +23,3 @@ public:
 	Transform& SetPosition(float x, float y);
 	Transform& SetRotation(float angle);
 };
-
