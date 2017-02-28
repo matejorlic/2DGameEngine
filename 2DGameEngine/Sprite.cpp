@@ -22,5 +22,5 @@ void Sprite::SetTexture(std::string s){
 	//texture->setSmooth(true);
 
 	sprite.setTexture(*texture);
-	//sprite.setOrigin(0.5f * texture->getSize().x, 0.5f * texture->getSize().y);
+	sprite.setOrigin(0.5f * texture->getSize().x, 0.5f * texture->getSize().y);
 }

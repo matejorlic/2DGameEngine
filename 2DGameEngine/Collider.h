@@ -2,8 +2,9 @@
 #include "Component.h"
 
 class Collider : public Component {
+protected:
+	b2Fixture* fixture;
 public:
 	Collider(GameObject& parentGO);
-	~Collider();
+	virtual ~Collider();
 };
-

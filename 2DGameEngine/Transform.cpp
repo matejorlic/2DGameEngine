@@ -11,6 +11,8 @@ Transform::Transform(GameObject& parentGO) : Component(parentGO){
 
 Transform::~Transform(){
 	//TODO
+	GameEngine::GetInstance()->physicsWorld->DestroyBody(body);
+	body = nullptr;
 }
 
 b2Vec2 Transform::GetPosition() {

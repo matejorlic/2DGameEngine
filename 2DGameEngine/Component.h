@@ -8,5 +8,5 @@ public:
 
 public:
 	Component(GameObject& parentGO);
-	~Component();
+	virtual ~Component();
 };

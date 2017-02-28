@@ -3,6 +3,9 @@
 #include <Box2D\Box2D.h>
 
 class Transform : public Component {
+	friend class BoxCollider;
+	friend class SphereCollider;
+
 private:
 	b2Body* body;
 public:

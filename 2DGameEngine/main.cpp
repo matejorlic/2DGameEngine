@@ -24,11 +24,12 @@ int main() {
 	GameEngine::Create();
 	
 	GameObject gameObject = GameObject("myObject");
-	gameObject.transform->SetPosition(0, 40);
 	gameObject.AddComponent<Sprite>()->SetTexture("Resources/blueBall.png");
-	//gameObject.AddComponent<BoxCollider>().SetSize(200, 200);
-	//gameObject.GetComponent<Transform>().position = new Vector2(100, 150);
-	//gameObject.GetComponent<Transform>().scale = new Vector2(0.5f, 0.5f);
+	gameObject.AddComponent<BoxCollider>()->SetSize(40 / 2, 40 / 2);
+	//gameObject.AddComponent<SphereCollider>()->SetSize(40 / 2);
+	gameObject.GetComponent<Transform>()->SetPosition(40 / 2 + 100, 40 / 2 + 200);
+	//gameObject.GetComponent<Transform>()->SetScale(0.5f, 0.5f);
+
 
 	GameEngine::Run();
 	return 0;

@@ -21,17 +21,24 @@ public:
 	~GameObject();
 	static GameObject& Find(std::string name);
 	static GameObject& Clone(GameObject gameObject);
+
 	template <typename T>
 	T* AddComponent() {
 		T* newComponent = new T(*this);
 		components.push_back(newComponent);
 		return newComponent;
 	}
+
 	template <typename T>
 	T* GetComponent() {
-		//TODO
-		return &T(*this);
+		for each (Component* comp in components) {
+			if (dynamic_cast<T*>(comp)) {
+				return dynamic_cast<T*>(comp);
+			}
+		}
+		return nullptr;
 	}
+
 	template <typename T>
 	void RemoveComponent() {
 		//TODO
