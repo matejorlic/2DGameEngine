@@ -240,3 +240,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+# Windows image file caches
+[Tt]humbs.db
+ehthumbs.db

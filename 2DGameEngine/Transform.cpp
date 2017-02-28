@@ -9,9 +9,8 @@ Transform::Transform(GameObject& parentGO) : Component(parentGO){
 	body = GameEngine::GetInstance()->physicsWorld->CreateBody(&bodyDef);
 }
 
-
 Transform::~Transform(){
-
+	//TODO
 }
 
 b2Vec2 Transform::GetPosition() {
@@ -20,4 +19,14 @@ b2Vec2 Transform::GetPosition() {
 
 float Transform::GetRotation() {
 	return body->GetAngle();
+}
+
+Transform & Transform::SetPosition(float x, float y) {
+	body->SetTransform(b2Vec2(x / GameEngine::physicsToGraphicsRatio, y / GameEngine::physicsToGraphicsRatio), body->GetAngle());
+	return *this;
+}
+
+Transform & Transform::SetRotation(float angle) {
+	body->SetTransform(body->GetPosition(), angle);
+	return *this;
 }

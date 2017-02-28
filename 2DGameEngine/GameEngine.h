@@ -18,13 +18,20 @@ private:
 	// Singleton GameEngine object
 	static GameEngine* gameEngine;
 
+public:
+
 	// Physics constants
 	static const float timeStep;
 	static const int velocityIterations;
 	static const int positionIterations;
-public:
+	static const int physicsToGraphicsRatio;
+
 	b2World* physicsWorld;
 	sf::RenderWindow* window;
+
+	// Window size
+	static int windowSizeX;
+	static int windowSizeY;
 	
 private:
 	GameEngine();

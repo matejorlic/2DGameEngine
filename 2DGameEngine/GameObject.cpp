@@ -15,12 +15,14 @@ GameObject::~GameObject() {
 }
 
 GameObject& GameObject::Find(std::string name) {
+	//TODO
 	return GameObject();
 }
 GameObject& GameObject::Clone(GameObject gameObject) {
+	//TODO
 	return GameObject();
 }
 
 void GameObject::RemoveComponent(Component& component) {
-
+	//TODO
 }

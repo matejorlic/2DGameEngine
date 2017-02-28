@@ -24,6 +24,7 @@ int main() {
 	GameEngine::Create();
 	
 	GameObject gameObject = GameObject("myObject");
+	gameObject.transform->SetPosition(0, 40);
 	gameObject.AddComponent<Sprite>()->SetTexture("Resources/blueBall.png");
 	//gameObject.AddComponent<BoxCollider>().SetSize(200, 200);
 	//gameObject.GetComponent<Transform>().position = new Vector2(100, 150);

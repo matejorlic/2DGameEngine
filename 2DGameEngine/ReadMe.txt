@@ -21,7 +21,7 @@ make up your 2DGameEngine application.
     similar extensions under a specific node (for e.g. ".cpp" files are associated with the
     "Source Files" filter).
 
-2DGameEngine.cpp
+main.cpp
     This is the main application source file.
 
 /////////////////////////////////////////////////////////////////////////////

@@ -3,10 +3,10 @@
 
 
 Collider::Collider(GameObject& parentGO) : Component(parentGO){
-
+	//TODO
 }
 
 
 Collider::~Collider(){
-
+	//TODO
 }

@@ -11,5 +11,8 @@ public:
 
 	b2Vec2 GetPosition();
 	float GetRotation();
+
+	Transform& SetPosition(float x, float y);
+	Transform& SetRotation(float angle);
 };
 

@@ -29,11 +29,12 @@ public:
 	}
 	template <typename T>
 	T* GetComponent() {
+		//TODO
 		return &T(*this);
 	}
 	template <typename T>
 	void RemoveComponent() {
-
+		//TODO
 	}
 	void RemoveComponent(Component& component);
 };
