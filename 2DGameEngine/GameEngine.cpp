@@ -40,7 +40,7 @@ void GameEngine::Run(){
 		gameEngine->ProcessInput();
 		gameEngine->UpdatePhysics();
 		gameEngine->UpdateGraphics();
-		Sleep(1000 * timeStep * 0.5f);
+		Sleep(1000 * timeStep);
 	}
 }
 
@@ -57,13 +57,14 @@ void GameEngine::ProcessInput() {
 
 void GameEngine::UpdatePhysics(){
 	//TODO
+	gameEngine->physicsWorld->Step(timeStep, velocityIterations, positionIterations);
 }
 
 void GameEngine::UpdateGraphics(){
 	window->clear();
 	for each (Sprite* s in Sprite::sprites) {
 		b2Vec2 position = s->gameObject.transform->GetPosition();
-		float32 angle = s->gameObject.transform->GetRotation();
+		float32 angle = -1.0f * s->gameObject.transform->GetRotation();
 		s->sprite.setPosition(position.x * physicsToGraphicsRatio, windowSizeY - position.y * physicsToGraphicsRatio);
 		s->sprite.setRotation(angle);
 

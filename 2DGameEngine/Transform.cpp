@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Transform.h"
 #include "GameEngine.h"
+#include <cmath>
 
 Transform::Transform(GameObject& parentGO) : Component(parentGO){
 	b2BodyDef bodyDef;
@@ -20,7 +21,7 @@ b2Vec2 Transform::GetPosition() {
 }
 
 float Transform::GetRotation() {
-	return body->GetAngle();
+	return body->GetAngle() * 180 / b2_pi;
 }
 
 Transform & Transform::SetPosition(float x, float y) {
@@ -29,6 +30,6 @@ Transform & Transform::SetPosition(float x, float y) {
 }
 
 Transform & Transform::SetRotation(float angle) {
-	body->SetTransform(body->GetPosition(), angle);
+	body->SetTransform(body->GetPosition(), angle * b2_pi / 180);
 	return *this;
 }

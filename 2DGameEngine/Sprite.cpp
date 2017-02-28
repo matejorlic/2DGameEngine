@@ -19,7 +19,7 @@ void Sprite::SetTexture(std::string s){
 
 	texture = new sf::Texture();
 	texture->loadFromFile(s);
-	//texture->setSmooth(true);
+	texture->setSmooth(true);
 
 	sprite.setTexture(*texture);
 	sprite.setOrigin(0.5f * texture->getSize().x, 0.5f * texture->getSize().y);

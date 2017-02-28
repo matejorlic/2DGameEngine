@@ -2,6 +2,8 @@
 #include "Component.h"
 
 class Collider : public Component {
+	friend class Rigidbody;
+
 protected:
 	b2Fixture* fixture;
 public:

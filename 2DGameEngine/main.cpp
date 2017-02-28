@@ -23,13 +23,20 @@ int a = 0;
 int main() {
 	GameEngine::Create();
 	
-	GameObject gameObject = GameObject("myObject");
+	GameObject gameObject = GameObject("ball");
 	gameObject.AddComponent<Sprite>()->SetTexture("Resources/blueBall.png");
-	gameObject.AddComponent<BoxCollider>()->SetSize(40 / 2, 40 / 2);
-	//gameObject.AddComponent<SphereCollider>()->SetSize(40 / 2);
-	gameObject.GetComponent<Transform>()->SetPosition(40 / 2 + 100, 40 / 2 + 200);
+	gameObject.AddComponent<SphereCollider>()->SetSize(40 / 2);
+	gameObject.GetComponent<Transform>()->SetPosition(40 / 2 + 100, 40 / 2 + 500);
 	//gameObject.GetComponent<Transform>()->SetScale(0.5f, 0.5f);
+	gameObject.AddComponent<Rigidbody>()->SetMass(10);
 
+	GameObject debugBox = GameObject("box");
+	debugBox.AddComponent<Sprite>()->SetTexture("Resources/debugBox.png");
+	debugBox.AddComponent<BoxCollider>()->SetSize(100 / 2, 100 / 2);
+	debugBox.GetComponent<Transform>()->SetPosition(100 / 2 + 80, 100 / 2 + 100);
+	debugBox.GetComponent<Transform>()->SetRotation(60);
+	//debugBox.GetComponent<Transform>()->SetScale(0.5f, 0.5f);
+	//debugBox.AddComponent<Rigidbody>()->SetMass(10);
 
 	GameEngine::Run();
 	return 0;

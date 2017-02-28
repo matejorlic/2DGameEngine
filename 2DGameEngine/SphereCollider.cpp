@@ -13,9 +13,9 @@ SphereCollider::~SphereCollider() {
 		gameObject.transform->body->DestroyFixture(fixture);
 	}
 
-	/*if (gameObject.GetComponents<Collider>().lenght == 1 && gameObject.transform->body->GetType() == b2BodyType::b2_kinematicBody) {
-	gameObject.transform->body->SetType(b2BodyType::b2_staticBody);
-	}*/
+	if (gameObject.GetComponents<Collider>().size() == 1 && gameObject.transform->body->GetType() == b2BodyType::b2_kinematicBody) {
+		gameObject.transform->body->SetType(b2BodyType::b2_staticBody);
+	}
 }
 
 void SphereCollider::SetSize(int x) {
@@ -24,6 +24,6 @@ void SphereCollider::SetSize(int x) {
 	}
 
 	b2CircleShape circleShape;
-	circleShape.m_radius = x;
+	circleShape.m_radius = 1.0f * x / GameEngine::physicsToGraphicsRatio;
 	fixture = gameObject.transform->body->CreateFixture(&circleShape, 0.0f);
 }

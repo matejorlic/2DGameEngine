@@ -5,6 +5,7 @@
 class Transform : public Component {
 	friend class BoxCollider;
 	friend class SphereCollider;
+	friend class Rigidbody;
 
 private:
 	b2Body* body;

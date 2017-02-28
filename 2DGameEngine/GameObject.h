@@ -40,6 +40,17 @@ public:
 	}
 
 	template <typename T>
+	std::list<T*> GetComponents() {
+		std::list<T*> comps;
+		for each (Component* comp in components) {
+			if (dynamic_cast<T*>(comp)) {
+				comps.push_back(dynamic_cast<T*>(comp));
+			}
+		}
+		return comps;
+	}
+
+	template <typename T>
 	void RemoveComponent() {
 		//TODO
 	}

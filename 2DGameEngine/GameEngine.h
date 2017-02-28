@@ -10,6 +10,7 @@
 #include "BoxCollider.h"
 #include "SphereCollider.h"
 #include "Transform.h"
+#include "Rigidbody.h"
 
 class b2World;
 
