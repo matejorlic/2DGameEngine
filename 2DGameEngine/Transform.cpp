@@ -17,7 +17,7 @@ Transform::~Transform(){
 }
 
 b2Vec2 Transform::GetPosition() {
-	return body->GetPosition();
+	return b2Vec2(body->GetPosition().x * GameEngine::physicsToGraphicsRatio, body->GetPosition().y * GameEngine::physicsToGraphicsRatio);
 }
 
 float Transform::GetRotation() {
@@ -32,4 +32,13 @@ Transform & Transform::SetPosition(float x, float y) {
 Transform & Transform::SetRotation(float angle) {
 	body->SetTransform(body->GetPosition(), angle * b2_pi / 180);
 	return *this;
+}
+
+void Transform::AddUserType(sol::state & lua) {
+	lua.new_usertype<Transform>("Transform",
+		"GetPosition", &Transform::GetPosition,
+		"GetRotation", &Transform::GetRotation,
+		"SetPosition", &Transform::SetPosition,
+		"SetRotation", &Transform::SetRotation
+		);
 }

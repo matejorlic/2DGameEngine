@@ -12,4 +12,7 @@ protected:
 public:
 	Collider(GameObject& parentGO);
 	virtual ~Collider();
+
+	// Lua binding.
+	static void AddUserType(sol::state& lua);
 };

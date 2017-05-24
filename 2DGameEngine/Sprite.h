@@ -14,5 +14,8 @@ public:
 	Sprite(GameObject& parentGO);
 	~Sprite();
 	void SetTexture(std::string s);
+
+	// Lua binding.
+	static void AddUserType(sol::state& lua);
 };
 

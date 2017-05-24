@@ -12,5 +12,8 @@ public:
 	Rigidbody(GameObject& parentGO);
 	~Rigidbody();
 	void SetMass(float m);
+
+	// Lua binding.
+	static void AddUserType(sol::state& lua);
 };
 

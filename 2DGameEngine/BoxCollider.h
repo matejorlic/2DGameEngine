@@ -8,5 +8,8 @@ public:
 	BoxCollider(GameObject& parentGO);
 	~BoxCollider();
 	void SetSize(int x, int y);
+
+	// Lua binding.
+	static void AddUserType(sol::state& lua);
 };
 

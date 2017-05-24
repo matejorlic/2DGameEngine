@@ -22,4 +22,7 @@ public:
 
 	Transform& SetPosition(float x, float y);
 	Transform& SetRotation(float angle);
+
+	// Lua binding.
+	static void AddUserType(sol::state& lua);
 };

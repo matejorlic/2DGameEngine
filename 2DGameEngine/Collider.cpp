@@ -10,3 +10,8 @@ Collider::Collider(GameObject& parentGO) : Component(parentGO){
 Collider::~Collider(){
 	//TODO
 }
+
+void Collider::AddUserType(sol::state & lua) {
+	lua.new_usertype<Collider>("Collider"
+		);
+}

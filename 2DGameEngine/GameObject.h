@@ -59,4 +59,13 @@ public:
 		//TODO
 	}
 	void RemoveComponent(Component& component);
+
+	// Lua binding.
+	static void AddUserType(sol::state& lua);
+
+	// Methods used for Lua binding. Type must be passed as parameter.
+	Component* AddComponentLua(std::string componentType);
+	Component* GetComponentLua(std::string componentType);
+	std::list<Component*> GetComponentsLua(std::string componentType);
+	void RemoveComponentLua(std::string componentType);
 };

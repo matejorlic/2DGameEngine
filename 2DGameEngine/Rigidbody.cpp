@@ -21,3 +21,9 @@ void Rigidbody::SetMass(float m){
 		c->fixture->SetRestitution(0.1f);
 	}
 }
+
+void Rigidbody::AddUserType(sol::state & lua) {
+	lua.new_usertype<Rigidbody>("Rigidbody",
+		"SetMass", &Rigidbody::SetMass
+		);
+}

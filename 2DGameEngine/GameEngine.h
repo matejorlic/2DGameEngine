@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <Box2D\Box2D.h>
+#include <lua.hpp>
+#include <sol.hpp>
 #include <Windows.h> //For Sleep()
 
 #include "GameObject.h"
@@ -11,6 +13,7 @@
 #include "SphereCollider.h"
 #include "Transform.h"
 #include "Rigidbody.h"
+#include "Script.h"
 
 // GameEngine is the central class of the engine. 
 // It connects physics and graphics to render the screen.
@@ -38,6 +41,7 @@ private:
 	GameEngine();
 	void ProcessInput();
 	void UpdatePhysics();
+	void UpdateScripts();
 	void UpdateGraphics();
 	
 public:

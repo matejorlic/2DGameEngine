@@ -8,5 +8,8 @@ public:
 	SphereCollider(GameObject& parentGO);
 	~SphereCollider();
 	void SetSize(int x);
+
+	// Lua binding.
+	static void AddUserType(sol::state& lua);
 };
 

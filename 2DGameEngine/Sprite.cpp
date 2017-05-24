@@ -24,3 +24,9 @@ void Sprite::SetTexture(std::string s){
 	sprite.setTexture(*texture);
 	sprite.setOrigin(0.5f * texture->getSize().x, 0.5f * texture->getSize().y);
 }
+
+void Sprite::AddUserType(sol::state & lua) {
+	lua.new_usertype<Sprite>("Sprite",
+		"SetTexture", &Sprite::SetTexture
+		);
+}

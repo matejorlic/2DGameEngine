@@ -27,3 +27,9 @@ void SphereCollider::SetSize(int x) {
 	circleShape.m_radius = 1.0f * x / GameEngine::physicsToGraphicsRatio;
 	fixture = gameObject.transform->body->CreateFixture(&circleShape, 0.0f);
 }
+
+void SphereCollider::AddUserType(sol::state & lua) {
+	lua.new_usertype<SphereCollider>("SphereCollider",
+		"SetSize", &SphereCollider::SetSize
+		);
+}

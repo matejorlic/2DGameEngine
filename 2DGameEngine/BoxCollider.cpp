@@ -32,3 +32,9 @@ void BoxCollider::SetSize(int x, int y){
 	// Add the ground fixture to the ground body.
 	fixture = gameObject.transform->body->CreateFixture(&box, 0.0f);
 }
+
+void BoxCollider::AddUserType(sol::state & lua) {
+	lua.new_usertype<BoxCollider>("BoxCollider",
+		"SetSize", &BoxCollider::SetSize
+		);
+}
