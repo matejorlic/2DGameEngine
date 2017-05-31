@@ -50,6 +50,8 @@ void Script::AddUserTypes(sol::state & lua) {
 	Rigidbody::AddUserType(lua);
 	Script::AddUserType(lua);
 
+	Input::AddUserType(lua);
+
 	// Custom user types
 	lua.new_usertype<b2Vec2>("Vector2",
 		"x", &b2Vec2::x,

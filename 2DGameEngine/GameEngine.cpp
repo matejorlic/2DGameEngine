@@ -41,17 +41,30 @@ void GameEngine::Run(){
 		gameEngine->UpdatePhysics();
 		gameEngine->UpdateScripts();
 		gameEngine->UpdateGraphics();
+		//TODO replace Sleep time with 1000*timeStep - lastFrameTime;
 		Sleep(1000 * timeStep);
 	}
 }
 
 void GameEngine::ProcessInput() {
-	//TODO
+	Input::ClearInputDownUpFlags();
+
 	sf::Event event;
 	while (gameEngine->window->pollEvent(event)) {
 		if (event.type == sf::Event::Closed) {
 			gameEngine->window->close();
 			return;
+		} else if (event.type == sf::Event::KeyPressed) {
+			Input::OnKeyDown(event.key.code);
+		} else if (event.type == sf::Event::KeyReleased) {
+			Input::OnKeyUp(event.key.code);
+		} else if (event.type == sf::Event::MouseButtonPressed) {
+			Input::OnMouseButtonDown(event.mouseButton.button);
+		} else if (event.type == sf::Event::MouseButtonReleased) {
+			Input::OnMouseButtonUp(event.mouseButton.button);
+		} else if (event.type == sf::Event::MouseWheelScrolled) {
+			// TODO mouse wheel scroll input event
+			event.mouseWheelScroll.delta; // Positive = up, negative = down
 		}
 	}
 }

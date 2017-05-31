@@ -162,6 +162,7 @@
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="Rigidbody.h" />
     <ClInclude Include="Script.h" />
     <ClInclude Include="SphereCollider.h" />
@@ -176,6 +177,7 @@
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Rigidbody.cpp" />
     <ClCompile Include="Script.cpp" />

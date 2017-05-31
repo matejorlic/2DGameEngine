@@ -15,8 +15,12 @@
 #include "Rigidbody.h"
 #include "Script.h"
 
+#include "Input.h"
+
 // GameEngine is the central class of the engine. 
 // It connects physics and graphics to render the screen.
+
+//TODO: Remove GameEngine* gameEngine, make all methods and members static
 
 class GameEngine {
 private:
