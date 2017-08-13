@@ -26,16 +26,17 @@ GameEngine* GameEngine::GetInstance() {
 }
 
 void GameEngine::Create(){
-	if (gameEngine == nullptr) {
-		gameEngine = new GameEngine();
-	}
+	if (gameEngine != nullptr)
+		return;
+
+	gameEngine = new GameEngine();
+	gameEngine->window = new sf::RenderWindow(sf::VideoMode(windowSizeX, windowSizeY), "Test");
+	gameEngine->LuaInit();
 }
 
 void GameEngine::Run(){
-	gameEngine->window = new sf::RenderWindow(sf::VideoMode(windowSizeX, windowSizeY), "Test");
+	GameEngine::Create();
 
-	float xPos = 0;
-	bool direction = true;
 	while (gameEngine->window->isOpen()) {
 		gameEngine->ProcessInput();
 		gameEngine->UpdatePhysics();
@@ -43,6 +44,26 @@ void GameEngine::Run(){
 		gameEngine->UpdateGraphics();
 		//TODO replace Sleep time with 1000*timeStep - lastFrameTime;
 		Sleep(1000 * timeStep);
+	}
+}
+
+void GameEngine::LuaInit() {
+	sol::state lua;
+	lua.open_libraries();
+
+	Script::AddUserTypes(lua);
+
+	lua.script_file("Resources/init.lua", [](lua_State* L, sol::protected_function_result pfr) {
+		sol::error err = pfr;
+		std::cout << err.what() << std::endl;
+		return pfr;
+	});
+
+	sol::protected_function luaInit = lua["Init"];
+	auto luaInitResult = luaInit();
+	if (!luaInitResult.valid()) {
+		sol::error err = luaInitResult;
+		std::cout << err.what() << std::endl;
 	}
 }
 
@@ -81,7 +102,19 @@ void GameEngine::UpdateScripts() {
 
 void GameEngine::UpdateGraphics(){
 	window->clear();
-	for each (Sprite* s in Sprite::sprites) {
+
+	// Update camera views
+	for (Camera* camera : Camera::cameras) {
+		camera->UpdateView();
+	}
+
+	// Update window view
+	if (Camera::mainCamera != nullptr) {
+		window->setView(Camera::mainCamera->GetView());
+	}
+
+	// Render sprites
+	for (Sprite* s : Sprite::sprites) {
 		b2Vec2 position = s->gameObject.transform->GetPosition();
 		float32 angle = -1.0f * s->gameObject.transform->GetRotation();
 		s->sprite.setPosition(position.x, windowSizeY - position.y);

@@ -52,6 +52,8 @@ Component * GameObject::AddComponentLua(std::string componentType) {
 		return AddComponent<Rigidbody>();
 	else if (componentType == "Script")
 		return AddComponent<Script>();
+	else if (componentType == "Camera")
+		return AddComponent<Camera>();
 }
 
 Component * GameObject::GetComponentLua(std::string componentType) {
@@ -67,6 +69,8 @@ Component * GameObject::GetComponentLua(std::string componentType) {
 		return GetComponent<Rigidbody>();
 	else if (componentType == "Script")
 		return GetComponent<Script>();
+	else if (componentType == "Camera")
+		return GetComponent<Camera>();
 }
 
 std::list<Component*> GameObject::GetComponentsLua(std::string componentType) {

@@ -26,11 +26,13 @@ float Transform::GetRotation() {
 
 Transform & Transform::SetPosition(float x, float y) {
 	body->SetTransform(b2Vec2(x / GameEngine::physicsToGraphicsRatio, y / GameEngine::physicsToGraphicsRatio), body->GetAngle());
+	body->SetAwake(true);
 	return *this;
 }
 
 Transform & Transform::SetRotation(float angle) {
 	body->SetTransform(body->GetPosition(), angle * b2_pi / 180);
+	body->SetAwake(true);
 	return *this;
 }
 

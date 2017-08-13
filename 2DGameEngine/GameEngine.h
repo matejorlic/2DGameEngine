@@ -14,6 +14,7 @@
 #include "Transform.h"
 #include "Rigidbody.h"
 #include "Script.h"
+#include "Camera.h"
 
 #include "Input.h"
 
@@ -43,6 +44,7 @@ public:
 	
 private:
 	GameEngine();
+	void LuaInit();
 	void ProcessInput();
 	void UpdatePhysics();
 	void UpdateScripts();

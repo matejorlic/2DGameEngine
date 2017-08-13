@@ -18,6 +18,7 @@ SphereCollider* Component::ToSphereCollider() { return dynamic_cast<SphereCollid
 Transform* Component::ToTransform() { return dynamic_cast<Transform*>(this); }
 Rigidbody* Component::ToRigidbody() { return dynamic_cast<Rigidbody*>(this); }
 Script* Component::ToScript() { return dynamic_cast<Script*>(this); }
+Camera* Component::ToCamera() { return dynamic_cast<Camera*>(this); }
 
 // Lua binding:
 void Component::AddUserType(sol::state & lua){
@@ -28,6 +29,7 @@ void Component::AddUserType(sol::state & lua){
 		"ToSphereCollider", &Component::ToSphereCollider,
 		"ToTransform", &Component::ToTransform,
 		"ToRigidbody", &Component::ToRigidbody,
-		"ToScript", &Component::ToScript
+		"ToScript", &Component::ToScript,
+		"ToCamera", &Component::ToCamera
 		);
 }

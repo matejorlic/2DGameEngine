@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Rigidbody.h"
 
-
 Rigidbody::Rigidbody(GameObject& parentGO) : Component(parentGO){
 	if (gameObject.transform->body->GetType() == b2BodyType::b2_kinematicBody)
 		gameObject.transform->body->SetType(b2BodyType::b2_dynamicBody);
@@ -22,8 +21,13 @@ void Rigidbody::SetMass(float m){
 	}
 }
 
+void Rigidbody::SetGravityScale(float s){
+	gameObject.transform->body->SetGravityScale(s);
+}
+
 void Rigidbody::AddUserType(sol::state & lua) {
 	lua.new_usertype<Rigidbody>("Rigidbody",
-		"SetMass", &Rigidbody::SetMass
+		"SetMass", &Rigidbody::SetMass,
+		"SetGravityScale", &Rigidbody::SetGravityScale
 		);
 }

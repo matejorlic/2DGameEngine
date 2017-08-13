@@ -9,6 +9,7 @@ class SphereCollider;
 class Transform;
 class Rigidbody;
 class Script;
+class Camera;
 
 // Base class for every component.
 
@@ -28,6 +29,7 @@ public:
 	Transform* ToTransform();
 	Rigidbody* ToRigidbody();
 	Script* ToScript();
+	Camera* ToCamera();
 
 	// Lua binding.
 	static void AddUserType(sol::state& lua);

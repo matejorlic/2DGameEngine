@@ -54,12 +54,12 @@ sf::Mouse::Button Input::StringToMouseButton(std::string keyString) {
 }
 
 void Input::ClearInputDownUpFlags() {
-	for each (sf::Keyboard::Key key in keyboardKeys) {
+	for (sf::Keyboard::Key key : keyboardKeys) {
 		keyboardKeyDown[key] = false;
 		keyboardKeyUp[key] = false;
 	}
 
-	for each (sf::Mouse::Button button in mouseButtons) {
+	for (sf::Mouse::Button button : mouseButtons) {
 		mouseButtonDown[button] = false;
 		mouseButtonUp[button] = false;
 	}

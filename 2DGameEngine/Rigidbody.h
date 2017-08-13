@@ -12,6 +12,7 @@ public:
 	Rigidbody(GameObject& parentGO);
 	~Rigidbody();
 	void SetMass(float m);
+	void SetGravityScale(float s);
 
 	// Lua binding.
 	static void AddUserType(sol::state& lua);

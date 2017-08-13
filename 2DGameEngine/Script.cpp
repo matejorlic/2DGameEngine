@@ -62,7 +62,7 @@ void Script::AddUserTypes(sol::state & lua) {
 
 // Static void. Called once per frame.
 void Script::Update() {
-	for each (Script* script in scripts) {
+	for (Script* script : scripts) {
 		sol::protected_function luaUpdate = script->lua["Update"];
 		auto luaUpdateResult = luaUpdate();
 		if (!luaUpdateResult.valid()) {

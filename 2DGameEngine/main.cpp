@@ -22,32 +22,7 @@
 	debugBox->AddComponent<Script>()->Init("Resources/debugBox.lua");
 }*/
 
-void luaMain() {
-	sol::state lua;
-	lua.open_libraries();
-
-	Script::AddUserTypes(lua);
-
-	lua.script_file("Resources/init.lua", [](lua_State* L, sol::protected_function_result pfr) {
-		sol::error err = pfr;
-		std::cout << err.what() << std::endl;
-		return pfr;
-	});
-
-	sol::protected_function luaInit = lua["Init"];
-	auto luaInitResult = luaInit();
-	if (!luaInitResult.valid()) {
-		sol::error err = luaInitResult;
-		std::cout << err.what() << std::endl;
-	}
-}
-
 int main() {
-	GameEngine::Create();
-
-	// TODO Move luaMain() to GameEngine::Run() ?
-	luaMain();
-
 	GameEngine::Run();
 	return 0;
 }

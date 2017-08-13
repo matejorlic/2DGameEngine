@@ -12,12 +12,14 @@ end
 
 function Update()
 	i = i + 1
-	if i == 30 then
+	if i == 1 then
 		sprite:SetTexture("Resources/debugBox.png")
 	end
 	
 	rotation = rotation + 1
 	transform:SetRotation(rotation)
+	
+	position = transform:GetPosition()
 	
 	if(Input.GetKey("W")) then
 		position.y = position.y + positionDelta.y
