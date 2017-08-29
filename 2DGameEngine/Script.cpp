@@ -29,6 +29,8 @@ void Script::Init(std::string name){
 		return pfr;
 	});
 
+	// TODO call Start function before next Update. 
+
 	sol::protected_function luaStart = lua["Start"];
 	auto luaStartResult = luaStart();
 	if (!luaStartResult.valid()) {

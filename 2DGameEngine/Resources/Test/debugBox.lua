@@ -13,7 +13,7 @@ end
 function Update()
 	i = i + 1
 	if i == 1 then
-		sprite:SetTexture("Resources/debugBox.png")
+		sprite:SetTexture("Resources/Test/debugBox.png")
 	end
 	
 	rotation = rotation + 1

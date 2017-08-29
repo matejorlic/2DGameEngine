@@ -18,4 +18,3 @@ public:
 	// Lua binding.
 	static void AddUserType(sol::state& lua);
 };
-

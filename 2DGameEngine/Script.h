@@ -14,6 +14,8 @@ public:
 	Script(GameObject& parentGO);
 	~Script();
 	void Init(std::string name);
+	std::string GetScriptName() { return scriptName; }
+	sol::state* GetLua() { return &lua; }
 
 	// Lua binding
 	static void AddUserType(sol::state& lua);

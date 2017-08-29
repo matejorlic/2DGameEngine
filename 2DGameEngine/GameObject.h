@@ -23,7 +23,7 @@ public:
 	GameObject();
 	GameObject(std::string name);
 	~GameObject();
-	static GameObject& Find(std::string name);
+	static GameObject* Find(std::string name);
 	static GameObject& Clone(GameObject gameObject);
 
 	template <typename T>

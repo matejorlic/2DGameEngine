@@ -3,7 +3,7 @@
 
 BoxCollider::BoxCollider(GameObject& parentGO) : Collider(parentGO) {
 	//TODO
-	if(gameObject.transform->body->GetType() == b2BodyType::b2_staticBody)
+	if (gameObject.transform->body->GetType() == b2BodyType::b2_staticBody)
 		gameObject.transform->body->SetType(b2BodyType::b2_kinematicBody);
 }
 

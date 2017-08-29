@@ -30,6 +30,10 @@ public:
 	Rigidbody* ToRigidbody();
 	Script* ToScript();
 	Camera* ToCamera();
+	//sol::state* ToLuaScript();
+	//sol::as_table_t<sol::state* >* ToLuaScript();
+	//lua_State* ToLuaScript();
+	//sol::state_view* ToLuaScript();
 
 	// Lua binding.
 	static void AddUserType(sol::state& lua);

@@ -14,9 +14,12 @@ GameObject::~GameObject() {
 	gameObjects.remove(this);
 }
 
-GameObject& GameObject::Find(std::string name) {
-	//TODO
-	return GameObject();
+GameObject* GameObject::Find(std::string name) {
+	for (GameObject* gameObject : gameObjects) {
+		if (gameObject->name == name)
+			return gameObject;
+	}
+	return nullptr;
 }
 GameObject& GameObject::Clone(GameObject gameObject) {
 	//TODO
@@ -35,7 +38,8 @@ void GameObject::AddUserType(sol::state & lua){
 		"AddComponent", &GameObject::AddComponentLua,
 		"GetComponent", &GameObject::GetComponentLua,
 		"GetComponents", &GameObject::GetComponentsLua,
-		"RemoveComponent", &GameObject::RemoveComponentLua
+		"RemoveComponent", &GameObject::RemoveComponentLua,
+		"Find", &GameObject::Find
 		);
 }
 
@@ -71,6 +75,12 @@ Component * GameObject::GetComponentLua(std::string componentType) {
 		return GetComponent<Script>();
 	else if (componentType == "Camera")
 		return GetComponent<Camera>();
+	else {
+		Script* script = GetComponent<Script>();
+		if (script->GetScriptName() == componentType) {
+			return script;
+		}
+	}
 }
 
 std::list<Component*> GameObject::GetComponentsLua(std::string componentType) {
