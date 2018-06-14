@@ -51,6 +51,7 @@ void Script::AddUserTypes(sol::state & lua) {
 	Transform::AddUserType(lua);
 	Rigidbody::AddUserType(lua);
 	Script::AddUserType(lua);
+	Camera::AddUserType(lua);
 
 	Input::AddUserType(lua);
 

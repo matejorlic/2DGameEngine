@@ -31,6 +31,7 @@ void GameEngine::Create(){
 
 	gameEngine = new GameEngine();
 	gameEngine->window = new sf::RenderWindow(sf::VideoMode(windowSizeX, windowSizeY), "Test");
+	gameEngine->window->setFramerateLimit(60);
 	gameEngine->LuaInit();
 }
 
@@ -43,7 +44,7 @@ void GameEngine::Run(){
 		gameEngine->UpdateScripts();
 		gameEngine->UpdateGraphics();
 		//TODO replace Sleep time with 1000*timeStep - lastFrameTime;
-		Sleep(1000 * timeStep);
+		//sf::sleep(sf::milliseconds(1000 * timeStep));
 	}
 }
 

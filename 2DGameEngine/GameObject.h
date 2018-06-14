@@ -25,6 +25,7 @@ public:
 	~GameObject();
 	static GameObject* Find(std::string name);
 	static GameObject& Clone(GameObject gameObject);
+	static GameObject* Create();
 
 	template <typename T>
 	T* AddComponent() {

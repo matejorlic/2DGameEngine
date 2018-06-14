@@ -5,7 +5,7 @@ ballTransform = GameObject.Find("ball"):GetComponent("Transform"):ToTransform()
 nextY = 0
 nextX = 0
 
-debugBox = GameObject.new()
+debugBox = GameObject.Create()
 debugBox:AddComponent("Sprite"):ToSprite():SetTexture("Resources/IcyTower/platform.png")
 debugBox:AddComponent("BoxCollider"):ToBoxCollider():SetSize(100 / 2, 50 / 2)
 debugBox:GetComponent("Transform"):ToTransform():SetPosition(0, 0)
@@ -20,7 +20,7 @@ end
 
 function Update()
 	if(ballTransform:GetPosition().y + 500 > nextY) then
-		debugBox = GameObject.new()
+		debugBox = GameObject.Create()
 		debugBox:AddComponent("Sprite"):ToSprite():SetTexture("Resources/IcyTower/platform.png")
 		debugBox:AddComponent("BoxCollider"):ToBoxCollider():SetSize(100 / 2, 50 / 2)
 		debugBox:GetComponent("Transform"):ToTransform():SetPosition(nextX, nextY)

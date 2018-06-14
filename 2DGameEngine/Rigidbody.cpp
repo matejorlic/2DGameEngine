@@ -25,9 +25,19 @@ void Rigidbody::SetGravityScale(float s){
 	gameObject.transform->body->SetGravityScale(s);
 }
 
+void Rigidbody::AddForce(float x, float y){
+	gameObject.transform->body->ApplyForceToCenter(b2Vec2(x, y), true);
+}
+
+b2Vec2 Rigidbody::GetVelocity() {
+	return gameObject.transform->body->GetLinearVelocity();
+}
+
 void Rigidbody::AddUserType(sol::state & lua) {
 	lua.new_usertype<Rigidbody>("Rigidbody",
 		"SetMass", &Rigidbody::SetMass,
-		"SetGravityScale", &Rigidbody::SetGravityScale
+		"SetGravityScale", &Rigidbody::SetGravityScale,
+		"AddForce", &Rigidbody::AddForce,
+		"GetVelocity", &Rigidbody::GetVelocity
 		);
 }

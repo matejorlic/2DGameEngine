@@ -10,6 +10,7 @@ GameObject::GameObject(std::string n) {
 	gameObjects.push_back(this);
 	transform = AddComponent<Transform>();
 }
+
 GameObject::~GameObject() {
 	gameObjects.remove(this);
 }
@@ -21,9 +22,14 @@ GameObject* GameObject::Find(std::string name) {
 	}
 	return nullptr;
 }
+
 GameObject& GameObject::Clone(GameObject gameObject) {
 	//TODO
 	return GameObject();
+}
+
+GameObject* GameObject::Create() {
+	return new GameObject();
 }
 
 void GameObject::RemoveComponent(Component& component) {
@@ -34,12 +40,14 @@ void GameObject::RemoveComponent(Component& component) {
 // Methods for Lua binding - type must be passed as parameter.
 void GameObject::AddUserType(sol::state & lua){
 	lua.new_usertype<GameObject>("GameObject",
+		//TODO remove name variable, add SetName function
 		"name", &GameObject::name,
 		"AddComponent", &GameObject::AddComponentLua,
 		"GetComponent", &GameObject::GetComponentLua,
 		"GetComponents", &GameObject::GetComponentsLua,
 		"RemoveComponent", &GameObject::RemoveComponentLua,
-		"Find", &GameObject::Find
+		"Find", &GameObject::Find,
+		"Create", &GameObject::Create
 		);
 }
 

@@ -14,5 +14,4 @@ function Update()
 	elseif(position.y < ballTransform:GetPosition().y) then 
 		transform:SetPosition(position.x, position.y + 1)
 	end
-
 end
